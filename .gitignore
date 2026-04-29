@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scratch/agent files
+/scratch/
+AGENTS.md
+CLAUDE.md
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
