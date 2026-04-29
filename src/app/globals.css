@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Dashboard Brand */
+  --color-brand-50:  #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-500: #2563eb;
+  --color-brand-600: #1d4ed8;
+  --color-brand-700: #1e40af;
+
+  /* Landing Palette */
+  --color-paper:  #F9F7F4;
+  --color-ink:    #161312;
+  --color-deep:   #0F1A26;
+  --color-accent: #E8600A;
+  --color-teal:   #1B4F72;
+  --color-warm:   #E5E1D8;
+
+  --sidebar-width: 248px;
+}
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; }
+  html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans;
+    font-size: 16px;
+  }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-200 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-slate-300; }
+}
+
+@layer utilities {
+  /* Mobile safe area */
+  .pb-safe { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+
+  /* Dashboard gradient */
+  .gradient-brand {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 60%, #0ea5e9 100%);
+  }
+
+  /* Landing page utilities */
+  .bg-paper { background-color: #F9F7F4; }
+  .bg-deep  { background-color: #0F1A26; }
+  .text-ink { color: #161312; }
+  .text-accent { color: #E8600A; }
+
+  .underline-accent {
+    text-decoration: underline;
+    text-decoration-color: #E8600A;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
+  }
+
+  .btn-accent {
+    background: #E8600A;
+    color: #fff;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  }
+  .btn-accent:hover {
+    background: #cf5409;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -8px rgba(232,96,10,0.45);
+  }
+
+  .btn-ghost-dark {
+    background: transparent;
+    color: #F9F7F4;
+    border: 1.5px solid rgba(249,247,244,0.25);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-ghost-dark:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(249,247,244,0.5);
+  }
+
+  /* Fade up animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .afu   { animation: fadeUp 0.65s ease-out both; }
+  .afu-1 { animation: fadeUp 0.65s 0.10s ease-out both; }
+  .afu-2 { animation: fadeUp 0.65s 0.22s ease-out both; }
+  .afu-3 { animation: fadeUp 0.65s 0.36s ease-out both; }
+  .afu-4 { animation: fadeUp 0.65s 0.50s ease-out both; }
+
+  /* Marquee */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+  }
+  .marquee:hover { animation-play-state: paused; }
+
+  /* Glass */
+  .glass {
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(255,255,255,0.45);
+  }
+
+  /* Background Batik Mewah */
+  .bg-indonesia {
+    background-image: url('/luxury_batik.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Structural Enterprise Grid Background */
+  .bg-enterprise-grid {
+    background-size: 32px 32px;
+    background-image: 
+      linear-gradient(to right, rgba(15, 23, 42, 0.08) 1.5px, transparent 1.5px),
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.08) 1.5px, transparent 1.5px);
+    background-color: #f8fafc;
+  }
+  
+  .bg-enterprise-dark-grid {
+    background-size: 32px 32px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+    background-color: #0f172a;
+  }
+
+  /* Modern Batik Background for Landing */
+  .bg-batik-modern {
+    background-image: 
+        linear-gradient(to bottom, rgba(248, 250, 252, 0.35), rgba(248, 250, 252, 0.35)),
+        url('/modern_batik.png');
+    background-size: 400px;
+    background-repeat: repeat;
+    background-blend-mode: multiply;
+  }
+
+  /* No tap highlight */
+  .no-tap { -webkit-tap-highlight-color: transparent; }
+}
